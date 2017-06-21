@@ -1,0 +1,114 @@
+// Header
+
+header {
+  h1 {
+    @media (max-width: 767px) { margin-top: 15px; margin-bottom: 15px; }
+    @media (min-width: 768px) { margin-top: 20px; margin-bottom: 20px; }
+
+    white-space: nowrap;
+
+    a {
+      color: #222;
+      text-decoration: none;
+
+      &:active, &:focus, &:hover, &:visited {
+        color: #222;
+        text-decoration: none;
+      }
+    }
+
+    .loading {
+      display: inline-block;
+      vertical-align: top;
+      line-height: 10px;
+    }
+
+    .gamma {
+      color: #1d66bf;
+      margin-left: 5px;
+    }
+
+    .tagline {
+      color: #bbb;
+      font-size: 12px;
+      font-weight: normal;
+      font-style: italic;
+      margin-left: 1px;
+    }
+  }
+
+  .mobile-sidebar-toggle {
+    display: none;
+    @media (max-width: 991px) { display: inline-block; }
+
+    position: fixed;
+    width: 46px;
+    z-index: 1000;
+
+    cursor: pointer;
+    color: rgba(29, 102, 191, 0.5);
+    font-size: 32px;
+    line-height: 36px;
+    padding: 5px 0;
+    text-align: center;
+
+    margin: 15px 0 10px -46px;
+    @media (min-width: 768px) { margin-top: 23px; }
+
+    background-color: #eee;
+    border-radius: 5px;
+
+    .fa-times { display: none; }
+
+    .mobile-sidebar-open & {
+      .fa-bars { display: none; }
+      .fa-times { display: inline-block; }
+    }
+
+    .direct-messages-badge {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background-color: #e44;
+
+      color: #fff;
+      font-size: 12px;
+      line-height: 18px;
+    }
+  }
+
+  .signin-link {
+    display: inline-block;
+    color: #bbb;
+    white-space: nowrap;
+
+    @media (max-width: 767px) { font-size: 20px; margin-top: 14px; }
+    @media (min-width: 768px) { font-size: 24px; margin-top: 27px; }
+  }
+}
+
+@media (max-width: 767px) {
+  h1 { font-size: 30px; } // 36px -> 30px
+  h2 { font-size: 25px; } // 30px -> 25px
+  h3 { font-size: 20px; } // 24px -> 20px
+  h4 { font-size: 15px; } // 18px -> 15px
+}
+
+// This is effectively inline version of <h3>, because we cannot use the latter inside of <p>
+.inline-header {
+  font-size: 24px;
+  margin: 0 3px;
+  white-space: nowrap;
+
+  &.line-start {
+    margin-left: 0;
+  }
+
+  @media (max-width: 767px) {
+    font-size: 20px;
+  }
+}

@@ -1,0 +1,158 @@
+.user-profile {
+  border-top: 1px solid #eee;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #eee;
+
+  .userpic {
+    float: left;
+    margin-right: 1px + 13px;
+  }
+
+  .profile-displayname {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 27px;
+
+    &.profile-loading {
+      color: #999;
+    }
+
+    a {
+      color: #333;
+      text-decoration: none;
+
+      &:active, &:focus, &:hover, &:visited {
+        color: #333;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .profile-username {
+    color: #999;
+
+    margin-top: 4px;
+    @media (max-width: 767px) { margin-top: 6px; }
+  }
+
+  .profile-description {
+    color: #000;
+
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+
+    padding-top: 10px;
+    margin-left: 77px + 13px;
+    @media (max-width: 767px) { clear: both; padding-top: 13px; margin-left: 0; }
+
+    .p-break {
+      display: block;
+      height: 0.35em;
+    }
+
+    &.profile-description-collapsed {
+      // Multiline text clamping with ellipsis.
+      // Works properly in Webkit, but doesn't show ellipsis in Firefox.
+      $font-size: 14px;
+      $line-height: 1.42;
+      $lines-to-show: 2;
+      display: -webkit-box;
+      height: $font-size * $line-height * $lines-to-show + 12;
+      font-size: $font-size;
+      line-height: $line-height;
+      -webkit-line-clamp: $lines-to-show;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}
+
+.profile-stats {
+  text-align: right;
+
+  .profile-stats-item {
+    white-space: nowrap;
+  }
+
+  @media (max-width: 767px) {
+    margin-top: 14px;
+    border-top: 1px solid #eee;
+    padding-top: 4px;
+
+    text-align: left;
+
+    .profile-stats-item {
+      display: inline-block;
+      margin-right: 15px;
+      margin-top: 10px;
+    }
+  }
+}
+
+.profile-status-and-controls {
+  color: #999;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #eee;
+
+  .text {
+    color: #333;
+  }
+
+  a {
+    white-space: nowrap;
+  }
+
+  .profile-status {
+    color: #333;
+    margin-right: 20px;
+  }
+
+  .profile-controls {
+    text-align: right;
+
+    @media (max-width: 767px) {
+      margin-top: 14px;
+      border-top: 1px solid #eee;
+      padding-top: 14px;
+
+      text-align: left;
+    }
+  }
+
+  .profile-controls-throbber {
+    margin: 0 5px 0 8px;
+  }
+
+  .alert-warning {
+    margin: 10px 0 0 0;
+  }
+}
+
+.user-subheader {
+  padding: 14px 0;
+  border-bottom: 1px solid #eee;
+  margin: 0;
+
+  .user-subheader-page-number {
+    float: right;
+    color: #ddd;
+  }
+
+  .user-subheader-sidelinks {
+    float: right;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 18px;
+  }
+}
+
+.feed-message {
+  padding-top: 14px;
+
+  .feed-message-throbber {
+    margin: 0 10px;
+  }
+}

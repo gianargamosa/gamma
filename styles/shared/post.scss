@@ -1,0 +1,399 @@
+// Post: header (author and recipients)
+$font-size-post-header: 15px;
+$line-height-post-header: 21px;
+
+// Post: body
+$font-size-post-body: 16px;
+$line-height-post-body: 22px;
+
+// Post: footer (timestamp and actions)
+$font-size-post-footer: 14px;
+$line-height-post-footer: 19px;
+
+// Single post: header (author and recipients)
+$font-size-post-header-single: 19px;
+$line-height-post-header-single: 26px;
+
+// Single post: body
+$font-size-post-body-single: 21px;
+$line-height-post-body-single: 28px;
+
+
+.post {
+  padding-top: 14px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #eee;
+
+  // Clearfix (http://www.cssmojo.com/latest_new_clearfix_so_far/)
+  &:after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+
+  a {
+    color: #555599;
+  }
+
+  .read-more {
+    color: #555599 !important;
+    font-style: italic;
+    white-space: nowrap;
+  }
+
+  .p-break {
+    display: block;
+    height: 0.35em;
+  }
+
+  // Left part of post.
+  // Includes userpic(s).
+  .post-userpic {
+    float: left;
+    margin-right: 10px;
+
+    &.has-secondary {
+      position: relative;
+      margin-bottom: 4px;
+
+      .userpic-secondary {
+        position: absolute;
+        // `top` set in JS
+        left: 17%;
+
+        width: 33px;
+        height: 33px;
+
+        &.userpic-large {
+          width: 50px;
+          height: 50px;
+        }
+      }
+    }
+  }
+
+  // Top part of post, it wraps around userpic on mobile.
+  // Includes post-header and post-text/post-editor.
+  .post-top {
+    color: #666;
+
+    margin-left: 52px + 10px;
+    @media (max-width: 767px) { margin-left: 0; min-height: 52px; }
+
+    .post-header {
+      font-size: $font-size-post-header;
+      line-height: $line-height-post-header;
+      margin-bottom: 2px;
+
+      a {
+        font-weight: bold;
+        color: #000088;
+      }
+
+      .post-recipient {
+        font-weight: 500;
+      }
+    }
+
+    .post-text {
+      color: #000;
+      font-size: $font-size-post-body;
+      line-height: $line-height-post-body;
+
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+
+      margin-bottom: 8px;
+
+      a {
+        color: #000088;
+      }
+    }
+  }
+
+  // Bottom part of post, it goes below userpic on mobile.
+  // Includes attachments, post-footer, likes and comments.
+  .post-bottom {
+    color: #666;
+    font-size: $font-size-post-footer;
+    line-height: $line-height-post-footer;
+
+    margin-left: 52px + 10px;
+    @media (max-width: 767px) { clear: both; margin-left: 0; }
+
+    .post-footer {
+      .post-visibility-icon {
+        margin: 0 6px 0 1px;
+
+        &.fa-envelope {
+          position: relative;
+          top: -1px;
+          font-size: $font-size-post-footer - 1px;
+        }
+      }
+
+      .post-timestamp {
+        color: #666;
+      }
+
+      .post-like-throbber {
+        margin-left: 5px;
+      }
+
+      .post-hide-throbber {
+        margin-left: 5px;
+      }
+    }
+  }
+}
+
+// "More" menu in post footer
+// (it's just an override, default styles are in react-dd-menu/src/scss/react-dd-menu.scss)
+.dd-menu .dd-menu-items .dd-menu-item {
+  &:hover {
+    background-color: #eee !important;
+  }
+  &.dd-menu-item-danger:hover {
+    color: #300 !important;
+    background-color: #fcc !important;
+  }
+
+  .dd-menu-item-link {
+    padding: 6px 12px !important;
+  }
+  &:first-child .dd-menu-item-link {
+    padding-top: 8px !important;
+    padding-bottom: 5px !important;
+  }
+  &:last-child .dd-menu-item-link {
+    padding-top: 5px !important;
+    padding-bottom: 8px !important;
+  }
+}
+
+// Used in both create-post and edit-post
+.post-editor {
+  position: relative; // necessary for proper width of dropzone inside this container
+
+  // Clearfix (http://www.cssmojo.com/latest_new_clearfix_so_far/)
+  &:after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+
+  .post-textarea {
+    @include editarea;
+
+    color: #000;
+    font-size: $font-size-post-body;
+    line-height: $line-height-post-body;
+  }
+
+  .post-edit-options {
+    float: left;
+    line-height: 22px;
+    margin-bottom: 8px;
+
+    .post-edit-attachments {
+      cursor: pointer;
+
+      &:hover span:last-child {
+        text-decoration: underline;
+      }
+    }
+
+    .post-edit-more-trigger {
+      color: #333;
+      margin-left: 15px;
+    }
+
+    .post-edit-more {
+      margin-top: 6px;
+
+      .post-edit-more-checkbox {
+        margin: 0 5px 0 1px;
+        vertical-align: middle;
+      }
+      .post-edit-more-labeltext {
+        font-weight: normal;
+        vertical-align: middle;
+      }
+    }
+  }
+
+  .post-edit-actions {
+    text-align: right;
+    margin-bottom: 8px;
+  }
+
+  .post-cancel {
+    color: #555599;
+    font-size: 12px;
+    margin-right: 10px;
+  }
+
+  .post-edit-throbber {
+    margin-right: 10px;
+  }
+
+  .post-error {
+    margin: 10px 0 !important;
+  }
+
+  // This only affects attachments in create-post, not in edit-post (and this is fine)
+  .attachments {
+    clear: both;
+  }
+}
+
+.recently-hidden-post {
+  padding-left: 63px;
+}
+
+.single-post {
+  border-top: 1px solid #eee;
+  padding-top: 14px;
+  padding-bottom: 0;
+  border-bottom: 0 none;
+
+  .post-top {
+    margin-left: 77px + 10px;
+    @media (max-width: 767px) { margin-left: 0; min-height: 77px; }
+
+    .post-header {
+      font-size: $font-size-post-header-single;
+      line-height: $line-height-post-header-single;
+    }
+
+    .post-text {
+      font-size: $font-size-post-body-single;
+      line-height: $line-height-post-body-single;
+    }
+  }
+
+  .post-bottom {
+    margin-left: 77px + 10px;
+    @media (max-width: 767px) { margin-left: 0; }
+  }
+
+  .post-editor {
+    .post-textarea {
+      font-size: $font-size-post-body-single;
+      line-height: $line-height-post-body-single;
+    }
+  }
+}
+
+.direct-post {
+  position: relative;
+  overflow: hidden;
+}
+
+.post-direct-marker {
+  position: absolute;
+
+  color: desaturate(lighten(#1d66bf, 17%), 20%);
+  opacity: 0.17; // To make it eventually the same color as the inside of a friend cloud icon
+  font-size: 65px;
+  top: 5px;
+  right: 0;
+
+  // Make it bigger on single post page
+  .single-post & {
+    font-size: 98px;
+    top: 12px;
+  }
+}
+
+.post-from-archive {
+  position: relative;
+  overflow: hidden;
+
+  .post-top, .audio-attachments, .general-attachments, .post-footer, .likes {
+    -webkit-filter: contrast(90%) sepia(40%);
+    filter: contrast(90%) sepia(40%);
+  }
+
+  .post-text {
+    color: darken(#704214, 15%) !important;
+  }
+}
+
+.post-archive-marker {
+  position: absolute;
+
+  color: #704214;
+  opacity: 0.2;
+  font-size: 37px;
+
+  // For big screens, put it below userpic
+  top: 73px;
+  left: 8px;
+
+  @media (max-width: 767px) {
+    // For small screens, put in the top right corner
+    opacity: 0.1;
+    left: inherit;
+    top: 12px;
+    right: 0;
+  }
+
+  // Make it bigger on single post page
+  .single-post & {
+    font-size: 56px;
+    top: 102px;
+    left: 11px;
+
+    @media (max-width: 767px) {
+      left: inherit;
+      top: 11px;
+      right: -1px;
+    }
+  }
+}
+
+.dummy-post {
+  .post-top {
+    color: #eee;
+
+    .post-header a {
+      color: #b8c0e6;
+    }
+
+    .post-text {
+      color: #ddd;
+    }
+  }
+
+  .post-bottom {
+    color: #eee;
+
+    .attachments .attachment {
+      border-color: #e4e4e4;
+      background-color: #f2f2f2;
+
+      height: 100px;
+
+      &.dummy-attachment-0 { width: 75px; }
+      &.dummy-attachment-1 { width: 100px; }
+      &.dummy-attachment-2 { width: 150px; }
+    }
+
+    .post-footer a {
+      color: #ced5f2;
+    }
+
+    .likes {
+      .likes-icon {
+        float: none;
+        margin: 0;
+        color: #ffe099;
+      }
+
+      a {
+        color: #ced5f2;
+      }
+    }
+  }
+}

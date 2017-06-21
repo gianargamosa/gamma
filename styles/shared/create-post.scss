@@ -1,0 +1,51 @@
+.create-post {
+  padding-top: 14px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #eee;
+
+  .post-edit-options,
+  .post-edit-actions {
+    display: none;
+  }
+
+  &.expanded {
+    .post-edit-options,
+    .post-edit-actions {
+      display: block;
+    }
+  }
+
+  .post-edit-options {
+    .xs-screen { display: none; }
+    .other-screens { display: inline; }
+
+    @media (max-width: 767px) { font-size: 12px; }
+    @media (max-width: 539px) {
+      .xs-screen { display: inline; }
+      .other-screens { display: none; }
+    }
+  }
+
+  button {
+    overflow: hidden;
+    max-width: 60%;
+
+    @media (max-width: 767px) { max-width: 50%; } // 540 - 767
+    @media (max-width: 539px) { max-width: 44%; } // 360 - 539
+    @media (max-width: 359px) { max-width: 38%; } // 320 - 359
+  }
+
+  .alert-warning {
+    margin: 2px 0 10px 0;
+  }
+
+  textarea {
+    position: relative; // to fix the outline covered by "relative" post-recipients
+  }
+
+  .post-visibility-icon {
+    position: absolute;
+    margin: -30px 0 0 -22px;
+    color: #666;
+  }
+}

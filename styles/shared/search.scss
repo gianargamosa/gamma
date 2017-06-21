@@ -1,0 +1,32 @@
+.search-form-in-header {
+  display: none;
+  @media (min-width: 768px) { display: block; }
+
+  float: left;
+
+  text-align: left;
+  margin-top: 29px;
+  opacity: 0.5;
+
+  &.focused {
+    opacity: 1;
+  }
+
+  button {
+    margin-left: 5px;
+  }
+}
+
+.search-form {
+  padding-top: 14px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #eee;
+
+  button {
+    margin-left: -20px;
+  }
+}
+
+.search-operators li {
+  margin-bottom: 5px;
+}

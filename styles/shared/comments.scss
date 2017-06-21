@@ -1,0 +1,158 @@
+.comments {
+  font-size: 14px;
+  line-height: 19px;
+}
+
+.comment {
+  margin-top: 8px;
+
+  .comment-icon {
+    float: left;
+    height: 16px;
+    width: 16px;
+    margin-top: 2px;
+    margin-right: 3px;
+
+    color: #999;
+    text-decoration: none;
+    line-height: 1em;
+
+    .fa-comment {
+      color: #eee;
+    }
+    .fa-comment-o {
+      font-weight: bold;
+    }
+
+    &.comment-icon-special {
+      color: desaturate(lighten(#1d66bf, 17%), 20%);
+
+      .fa-comment {
+        color: desaturate(lighten(#1d66bf, 50%), 20%);
+      }
+    }
+
+    &.comment-icon-add {
+      margin-top: 1px;
+
+      .fa-plus,
+      .fa-square {
+        font-size: 60%;
+        top: 3px;
+        left: 4px;
+      }
+      .fa-plus {
+        top: 3px;
+        left: 4px;
+      }
+    }
+  }
+
+  .comment-body {
+    margin-left: 19px;
+
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  }
+
+  .comment-timestamp {
+    color: #ccc;
+    white-space: nowrap;
+
+    a {
+      color: #bbb;
+    }
+  }
+
+  .comment-textarea {
+    @include editarea;
+  }
+
+  .comment-cancel {
+    font-size: 12px;
+    margin-left: 10px;
+  }
+
+  .comment-throbber {
+    margin-left: 10px;
+  }
+
+  .comment-error {
+    margin: 10px 0 0 0 !important;
+  }
+
+  .more-comments-throbber {
+    display: inline-block;
+    width: 16px;
+    margin-left: -1px;
+    margin-right: 4px;
+  }
+
+  .more-comments-link {
+    font-style: italic;
+  }
+
+  .add-comment-link {
+    font-style: italic;
+    margin-left: 1px;
+  }
+
+  &:hover {
+    .reference-arrow {
+      cursor: pointer;
+
+      color: #333;
+      background-color: #eee;
+      border-radius: 2px;
+
+      padding: 1px 3px;
+      margin: -1px -3px;
+
+      &:hover {
+        background-color: #d9ebff;
+      }
+    }
+  }
+
+  &.comment-from-archive {
+    -webkit-filter: contrast(90%) sepia(40%);
+    filter: contrast(90%) sepia(40%);
+  }
+
+  &.hidden-comment {
+    .comment-body,
+    .comment-timestamp a,
+    .comment-icon {
+      color: #ccc;
+      font-style: italic;
+
+      .fa-comment {
+        color: #f4f4f4;
+      }
+    }
+  }
+
+  &.highlighted {
+    background-color: #deedff !important; // Should override color in .targeted-comment
+    border-radius: 3px;
+
+    padding: 4px 7px 5px 7px;
+    margin: 4px -7px -5px -7px;
+  }
+
+  &.targeted-comment {
+    background-color: #ffb;
+    border-radius: 3px;
+
+    padding: 4px 7px 5px 7px;
+    margin: 4px -7px -5px -7px;
+  }
+}
+
+.comments-archive-revival {
+  margin: 8px 0 -12px 0;
+
+  .fa {
+    width: 16px;
+  }
+}

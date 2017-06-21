@@ -1,0 +1,149 @@
+.user-name-wrapper {
+  display: inline;
+
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+.user-card {
+  position: absolute;
+  z-index: 10000;
+  margin-top: 10px;
+  margin-left: -20px;
+  width: 263px;
+  background-color: #fff;
+  border-radius: 2px;
+  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.5);
+
+  &:before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    left: 14px;
+    top: -5px;
+    width: 12px;
+    height: 12px;
+    background: inherit;
+    transform: rotate(45deg);
+    box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.5);
+  }
+
+  &.upside-down {
+    margin-top: 0;
+    margin-bottom: 10px;
+
+    &:before {
+      top: inherit;
+      bottom: -5px;
+      background-color: #f4f4f4;
+    }
+  }
+
+  &.right-to-left {
+    margin-left: 0;
+    margin-right: -20px;
+
+    &:before {
+      left: inherit;
+      right: 14px;
+    }
+  }
+
+  .user-card-info {
+    min-height: 97px; // 75px + 2px + 20px
+    padding: 10px 8px 0 10px;
+    background-color: #fff;
+    border-top-right-radius: 2px;
+    border-top-left-radius: 2px;
+
+    font-size: 12px !important;
+    line-height: 15px;
+    text-align: left;
+
+    .userpic {
+      float: left;
+    }
+
+    .display-name {
+      font-weight: bold;
+      margin-left: 87px;
+
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+
+      a {
+        color: #000088 !important;
+      }
+    }
+
+    .username {
+      color: #999;
+      margin: 3px 0 0 87px;
+
+      .description-trigger {
+        color: #ccc;
+        padding: 1px 3px;
+        margin-left: 2px;
+
+        &:hover {
+          cursor: pointer;
+          background-color: #eee;
+        }
+      }
+    }
+
+    .description {
+      color: #666;
+      margin: 7px 0 0 87px;
+      overflow: hidden;
+    }
+
+    .feed-status {
+      color: #666;
+      margin: 7px 0 0 87px;
+
+      .icon-protected {
+        width: 13px;
+        height: 10px;
+
+        .icon-protected-bg { top: 1px; left: 50%; }
+        .icon-protected-shadow { top: 1px; left: -4%; }
+        .icon-protected-fg { top: 1px; left: 2%; }
+      }
+    }
+
+    .relationship-status {
+      color: #666;
+      margin: 7px 0 6px 87px;
+    }
+
+    &:after {
+      content: '';
+      display: table;
+      clear: both;
+    }
+  }
+
+  .user-card-actions {
+    border-top: 1px #e4e4e4 solid;
+    padding: 5px 10px 6px 10px;
+    background-color: #f4f4f4;
+    border-bottom-right-radius: 2px;
+    border-bottom-left-radius: 2px;
+
+    color: #666;
+    font-size: 13px !important;
+    line-height: 17px;
+    text-align: left;
+
+    a {
+      font-size: 13px !important;
+      color: #555599 !important;
+      font-weight: normal !important;
+    }
+
+    .user-card-actions-throbber {
+      margin-left: 5px;
+    }
+  }
+}

@@ -1,0 +1,132 @@
+// General
+
+.attachments {
+  margin-bottom: 2px;
+
+  a {
+    color: #000088;
+    text-decoration: none;
+
+    &:hover span {
+      text-decoration: underline;
+    }
+  }
+
+  // Clearfix (http://www.cssmojo.com/latest_new_clearfix_so_far/)
+  &:after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+.image-attachments {
+  .attachment {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    border: 1px solid silver;
+    padding: 1px;
+    margin: 0 8px 8px 0;
+
+    min-width: 36px;
+    min-height: 36px;
+    line-height: 30px;
+    text-align: center;
+
+    img {
+      max-width: 525px;
+      max-height: 175px;
+    }
+  }
+
+  .show-more-images {
+    display: inline-block;
+    color: #fad889; // logotype yellow (#f9b616) with lower saturation;
+    font-size: 2em;
+    text-decoration: none;
+    position: relative;
+    top: 2px;
+    margin-bottom: 10px;
+
+    // fa-chevron-circle-right
+    &:before {
+      content: "\f138";
+    }
+  }
+}
+
+.audio-attachments,
+.general-attachments {
+  .attachment {
+    position: relative;
+    display: block;
+    margin: 0 8px 8px 0;
+
+    i {
+      color: #666666;
+      padding: 0 1px;
+      margin-right: 4px;
+    }
+  }
+}
+
+
+// Editing entries
+
+.image-attachments {
+  .attachment .remove-attachment {
+    display: block;
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    line-height: 30px;
+    right: 1px;
+    top: 1px;
+    cursor: pointer;
+    color: #000;
+    font-size: 20px;
+    z-index: 10;
+    background-color: silver;
+    opacity: 0.7;
+    border-bottom-left-radius: 5px;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  .attachment.removed {
+    border: 2px solid #e33;
+    padding: 0;
+  }
+
+  .attachment.added {
+    border: 2px solid #3d3;
+    padding: 0;
+  }
+}
+
+.audio-attachments,
+.general-attachments {
+  .attachment .remove-attachment {
+    display: inline;
+    cursor: pointer;
+    padding: 3px 6px 4px 6px;
+    margin: 0 0 0 5px;
+    background-color: #eee;
+    border-radius: 3px;
+
+    &:hover {
+      background-color: #ddd;
+    }
+  }
+
+  .attachment.removed {
+    background-color: #fbb;
+  }
+
+  .attachment.added {
+    background-color: #bfb;
+  }
+}

@@ -1,0 +1,98 @@
+.box {
+  clear: both;
+  margin-bottom: 23px;
+  border: 0;
+  border-radius: 8px;
+}
+
+// --- Block headers ---
+.box-header {
+  line-height: 28px;
+  height: 28px;
+  border-bottom: 2px black solid;
+  color: #000;
+}
+
+// User profile, group profile
+.box-header-empty {
+  @extend .box-header;
+
+  background-color: #fff;
+}
+
+// Timeline header
+.box-header-timeline {
+  @extend .box-header;
+
+  font-size: 24px;
+  font-weight: 500;
+  padding-bottom: 2px;
+  overflow: hidden;
+
+  .subheader {
+    color: #ddd;
+  }
+}
+
+.box-message {
+  margin-bottom: 15px;
+  padding: 5px 10px;
+}
+
+// Content and footer
+.content {
+  .box-body {
+    background-color: #fff;
+
+    @include clearfix;
+  }
+}
+
+.sidebar {
+  .box-header {
+    font-weight: bold;
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
+
+  .box-body {
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    margin-bottom: 3px;
+    background-color: #fff;
+
+    @include clearfix;
+
+    a {
+      color: #000;
+      text-decoration: none;
+    }
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      li {
+        padding-bottom: 3px;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+    }
+
+    .updated-ago {
+      display: table;
+      color: #999;
+      font-size: 11px;
+    }
+  }
+
+  .box-footer {
+    padding: 5px 0 10px 0;
+    font-size: 11px;
+
+    a {
+      color: #000;
+    }
+  }
+}

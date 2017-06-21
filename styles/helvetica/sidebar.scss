@@ -1,0 +1,153 @@
+.sidebar {
+  a {
+    color: #000;
+
+    i,
+    .userpic {
+      display: none;
+    }
+  }
+
+  a.bookmarklet-button {
+    color: #000;
+    background-color: #ddd;
+    border-radius: 4px;
+    padding: 3px 6px;
+    margin: 0;// -3px;
+    white-space: nowrap;
+    text-decoration: none;
+
+    &:hover {
+      color: #fff;
+      background-color: #333;
+      text-decoration: none;
+    }
+  }
+
+  .logged-in {
+    margin-bottom: 23px;
+
+    .userpic {
+      float: left;
+      margin-right: 1px + 10px;
+    }
+
+    .user .author {
+      font-size: 14px;
+      font-weight: bold;
+      line-height: 16px;
+      padding-top: 2px;
+      min-height: 25px;
+      margin-bottom: 8px;
+    }
+  }
+
+  .search-form-in-header {
+    display: none;
+  }
+}
+
+@media (max-width: 991px) {
+  .sidebar-overlay {
+    background-color: transparent;
+    transition: background-color 0.3s;
+
+    .mobile-sidebar-open & {
+      display: block;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      padding: 0; // overriding col-md-3
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 10;
+    }
+  }
+
+  .sidebar {
+    position: fixed;
+    display: block;
+    top: 0;
+    right: 0;
+    max-width: 270px;
+    width: 75%;
+    height: 100%;
+    overflow-y: auto;
+    background-color: #fff;
+    box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.5);
+    padding: 15px 15px 0 15px;
+
+    -webkit-transform: translate(270px + 5px, 0);
+    transform: translate(270px + 5px, 0);
+
+    -webkit-transition: -webkit-transform 0.3s;
+    transition: transform 0.3s;
+
+    .mobile-sidebar-open & {
+      -webkit-transform: translate(0, 0);
+      transform: translate(0, 0);
+    }
+
+    .search-form-in-header {
+      display: block;
+      margin: 0 0 15px 0;
+      opacity: 1;
+
+      input, button {
+        display: inline;
+        vertical-align: middle;
+        height: 34px;
+      }
+
+      input {
+        width: 75%;
+      }
+    }
+
+    .box-header {
+      margin-bottom: 0 !important;
+    }
+
+    .box-body ul li {
+      border-bottom: 1px solid #eee;
+      padding: 0 !important;
+
+      a {
+        display: block;
+        padding: 10px 0 !important;
+
+        &:active {
+          background-color: #eee;
+        }
+
+        i {
+          display: inline-block;
+          color: #333;
+          margin-right: 6px;
+        }
+
+        .userpic {
+          display: block;
+          float: left;
+          width: 33px;
+          height: 33px;
+          margin-top: 1px + 1px;
+          margin-right: 1px + 10px;
+        }
+
+        .updated-ago {
+          margin-top: 1px;
+        }
+      }
+    }
+
+    .box-footer {
+      padding-top: 10px !important;
+    }
+
+    .hidden-on-mobile {
+      display: none;
+    }
+  }
+}
